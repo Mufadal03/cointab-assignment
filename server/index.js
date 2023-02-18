@@ -10,9 +10,10 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-
+// USERS ROUTE 
 app.use("/users", userController);
 
+//TESTING ROUTE
 app.get("/", (req, res) => {
 	res.send('RUNNING SUCCESSFULLY');
 });
