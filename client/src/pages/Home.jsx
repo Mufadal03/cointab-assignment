@@ -14,7 +14,7 @@ const Home = () => {
     const {enqueueSnackbar} = useSnackbar()
     const handleFetchUsers = () => {
         if (fetchLoading) {
-            return
+           enqueueSnackbar('already Fetch is going on',{variant:'error'})
         }
         setFetchLoading(true)
         axios.post('/fetch').then((r) => {
@@ -30,7 +30,7 @@ const Home = () => {
         axios.delete('/delete').then((r) => {
             console.log(r.data)
             setDeleteLoading(false)
-            enqueueSnackbar('Users Deleted',{variant:"success"});
+            enqueueSnackbar('Users Deleted',{variant:"error"});
             
         }).catch((e) => {
             console.log(e)
