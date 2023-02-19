@@ -5,6 +5,7 @@ import CloudDownloadIcon from '@mui/icons-material/CloudDownload';
 import axios from '../axios/axios'
 import LoadingButton from '@mui/lab/LoadingButton'
 import CustomModal from '../components/CustomModal';
+import { Link } from 'react-router-dom';
 const Home = () => {
     const [fetchLoading, setFetchLoading] = useState(false)
     const [deleteLoading,setDeleteLoading] = useState(false)
@@ -42,8 +43,8 @@ const Home = () => {
          
               <LoadingButton loading={deleteLoading} onClick={()=>setOpen(true)} size='large' variant='contained' color='error' endIcon={<Delete />}> Delete Users</LoadingButton>
               <CustomModal open={ open} handleClose={()=>setOpen(false)} handleDelete={handleDeleteUsers} />
-          <Button size='large' variant='contained' >User details page</Button>
-          </Stack>
+          <Link to='/user-details' style={{textDecoration:"none"}}><Button size='large' variant='contained' >User details page</Button></Link>
+          </Stack>  
       </Box>
   )
 }
