@@ -64,7 +64,7 @@ const Filter = ({page,setPage}) => {
                 <InputLabel id='country'>FILTER BY COUNTRY</InputLabel>
               <Select size='small' label='country' value={country} onChange={(e) => setCountry(e.target.value)} labelId='country'>
                       {
-                          countryDb.map((el) => <MenuItem value={el.name}>{ el.name}</MenuItem>)
+                          countryDb.map((el,i) => <MenuItem key={i} value={el.name}>{ el.name}</MenuItem>)
                  }
               </Select>
               </FormControl>
