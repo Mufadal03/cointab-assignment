@@ -76,7 +76,7 @@ const Filter = ({page,setPage}) => {
                       valueLabelDisplay="auto"
                       getAriaValueText={valuetext}
                   />
-                  <Typography textAlign={'center'}>Searching age from {age[0]} to {age[1] }</Typography>
+                  <Typography textAlign={'center'}>Searching user age between {age[0]} to {age[1] }</Typography>
               </Box>
               <Button onClick={handleReset} variant='contained' color='error'>RESET FILTER</Button>
           </Stack>
