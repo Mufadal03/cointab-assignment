@@ -35,13 +35,13 @@ userController.get('/', async (req, res) => {
     const filter = {}
     username && (filter.name = { $regex: username, $options: 'i' })
     gender && (filter.gender = gender)
-    city && (filter.city = gender)
+    city && (filter.city = city)
     state && (filter.state = state)
     country && (filter.country = country)
     age_gte && (filter.age = { '$gte': age_gte })
     age_lte && (filter.age = { '$lte': age_lte })
     age_gte && age_lte && (filter.age = { '$gte': age_gte, '$lte': age_lte })
-
+console.log(filter)
     try {
         const totalLen = await userModel.find(filter).count()
         const data = await userModel.find(filter).skip((page - 1) * limit).limit(limit)

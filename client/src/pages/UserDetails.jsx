@@ -21,7 +21,8 @@ const UserDetails = () => {
                 country: searchParams.get('country'),
                 username: searchParams.get('username'),
                 age_lte: searchParams.get('age_lte'),
-                age_gte:searchParams.get('age_gte')
+                age_gte: searchParams.get('age_gte'),
+                city : searchParams.get('city')
             }
         }
         fetchUsers(payload)

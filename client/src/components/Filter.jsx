@@ -7,7 +7,8 @@ function valuetext(value) {
 }
 const Filter = ({page,setPage}) => {
     const [gender, setGender] = useState('')
-    const [country, setCountry] = useState('')
+  const [country, setCountry] = useState('')
+  const [city,setCity] = useState('')
     const [searchParams, setSearchParams] = useSearchParams()
   const [age, setAge] = useState([10, 90])
   const [ageParams,setAgeParams] = useState([10,90])
@@ -22,9 +23,10 @@ const Filter = ({page,setPage}) => {
         page && (params.page = page)
       query && (params.username = query)
       age[0] && (params.age_gte = minAge)
-      age[1] && (params.age_lte=maxAge)
+      age[1] && (params.age_lte = maxAge)
+      city && (params.city = city)
         setSearchParams(params)
-    }, [gender, country,page,query,ageParams])
+    }, [gender, country,page,query,ageParams,city])
     
   useEffect(() => {
     let timer = setTimeout(() => {
@@ -36,7 +38,8 @@ const Filter = ({page,setPage}) => {
       setName('')
         setPage(1)
         setCountry('')
-        setGender('')
+    setGender('')
+    setCity('')
         setAge([10,90])
     }
   const handleAge = (e, newValue) => {
@@ -77,7 +80,13 @@ const Filter = ({page,setPage}) => {
                       getAriaValueText={valuetext}
                   />
                   <Typography textAlign={'center'}>Searching user age between {age[0]} to {age[1] }</Typography>
-              </Box>
+        </Box>
+        <FormControl sx={{width:'210px'}}>
+                <InputLabel id='city'>FILTER BY CITY</InputLabel>
+              <Select size='small' label='city' value={city} onChange={(e) => setCity(e.target.value)} labelId='gender'>
+                  <MenuItem value='Woodstock'>Woodstock</MenuItem>
+              </Select>
+              </FormControl>
               <Button onClick={handleReset} variant='contained' color='error'>RESET FILTER</Button>
           </Stack>
     </Box>
